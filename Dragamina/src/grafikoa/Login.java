@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.ComboBoxEditor;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -52,14 +53,6 @@ public class Login {
 		frame.getContentPane().add(user);
 		user.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Sartu");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnNewButton.setBounds(278, 36, 177, 65);
-		frame.getContentPane().add(btnNewButton);
-		
 		JComboBox<String> comboBox = new JComboBox<String>();
 		comboBox.setBounds(28, 81, 209, 20);
 		comboBox.addItem("Erraza");
@@ -70,5 +63,39 @@ public class Login {
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(28, 112, 428, 215);
 		frame.getContentPane().add(textArea);
+		
+		JButton btnNewButton = new JButton("Sartu");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println(user.getText() + " erabiltzailea jokatzen ari da");
+				if (comboBox.getSelectedItem().toString()=="Erraza"){
+					textArea.setText("Kaixo " + user.getText() + " aukera erraza hartu duzu.");
+					logikoa.Erraza e = new logikoa.Erraza();
+					e.start_actionPerformed(arg0);	
+				}
+				else if (comboBox.getSelectedItem().toString()=="Ertaina"){
+					textArea.setText("Kaixo " + user.getText() + " aukera ertaina hartu duzu.");
+					logikoa.Ertaina e = new logikoa.Ertaina();
+					e.start_actionPerformed(arg0);	
+				}
+				else if (comboBox.getSelectedItem().toString()=="Zaila"){
+					textArea.setText("Kaixo " + user.getText() + " aukera zaila hartu duzu.");
+					logikoa.Zaila z = new logikoa.Zaila();
+					z.start_actionPerformed(arg0);	
+				}
+			}
+		});
+		btnNewButton.setBounds(278, 36, 177, 23);
+		frame.getContentPane().add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Ranking-a lortu");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnNewButton_1.setBounds(278, 80, 177, 23);
+		frame.getContentPane().add(btnNewButton_1);
+		
+		
 	}
 }

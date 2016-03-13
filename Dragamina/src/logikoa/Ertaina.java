@@ -39,9 +39,9 @@ public class Ertaina extends JFrame {
  
 	public void jbInit() throws Exception  {
 		this.getContentPane().setLayout(null);
-		this.setSize(new Dimension(483, 380));
+		this.setSize(new Dimension(516, 392));
 		this.setTitle("Dragamina");
-		panela.setBounds(new Rectangle(0, 40, 483, 380));
+		panela.setBounds(new Rectangle(0, 40, 483, 306));
 		panela.setBackground(new Color(162, 175, 227));
 		panela.setLayout(null);
 		start.setText("Hasi");

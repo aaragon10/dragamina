@@ -39,10 +39,10 @@ public class Erraza extends JFrame {
  
 	public void jbInit() throws Exception  {
 		this.getContentPane().setLayout(null);
-		this.setSize(new Dimension(483, 380));
+		this.setSize(new Dimension(419, 347));
 		this.setTitle("Dragamina");
-		panela.setBounds(new Rectangle(0, 40, 383, 380));
-		panela.setBackground(new Color(162, 175, 227));
+		panela.setBounds(new Rectangle(0, 40, 376, 252));
+		panela.setBackground(new Color(200, 200, 200));
 		panela.setLayout(null);
 		start.setText("Hasi");
 		start.setBounds(new Rectangle(0, 0, 125, 40));
@@ -268,11 +268,11 @@ public class Erraza extends JFrame {
 					contadorFinal++;
 					if (contadorFinal==171){
 						this.setTitle("ZORIONAK! Partida irabazi duzu!");
-						start.setText("NEW…");
+						start.setText("BERRIA");
 					}
 				}
 			}
-		}     
+		}
 	}
  
 }

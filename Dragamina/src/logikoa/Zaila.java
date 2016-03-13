@@ -39,9 +39,9 @@ public class Zaila extends JFrame {
  
 	public void jbInit() throws Exception  {
 		this.getContentPane().setLayout(null);
-		this.setSize(new Dimension(483, 380));
+		this.setSize(new Dimension(1030, 597));
 		this.setTitle("Dragamina");
-		panela.setBounds(new Rectangle(0, 40, 1083, 680));
+		panela.setBounds(new Rectangle(0, 40, 1000, 503));
 		panela.setBackground(new Color(162, 175, 227));
 		panela.setLayout(null);
 		start.setText("Hasi");

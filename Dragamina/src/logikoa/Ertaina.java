@@ -42,7 +42,7 @@ public class Ertaina extends JFrame {
 		this.setSize(new Dimension(516, 392));
 		this.setTitle("Dragamina");
 		panela.setBounds(new Rectangle(0, 40, 483, 306));
-		panela.setBackground(new Color(162, 175, 227));
+		panela.setBackground(new Color(0, 200, 200));
 		panela.setLayout(null);
 		start.setText("Hasi");
 		start.setBounds(new Rectangle(0, 0, 125, 40));
@@ -57,8 +57,8 @@ public class Ertaina extends JFrame {
 		});
 		this.getContentPane().add(start, null);
 		this.getContentPane().add(panela, null);
-		cargarTablero();
-		colocarBomba(getzutabeak());
+		taulaKargatu();
+		bonbaJarri(getzutabeak());
 		comprueba();
 		this.setVisible(true);  
  
@@ -74,14 +74,14 @@ public class Ertaina extends JFrame {
 				taula[i][z].setText(" ");
 			}
 		}
-		colocarBomba(getzutabeak());
+		bonbaJarri(getzutabeak());
 		comprueba();
 		this.setTitle("Dragamina");
 		start.setText("HASI");
 	}
 	//—– Inicializa el tablero a 0
  
-	public void cargarTablero(){
+	public void taulaKargatu(){
 		for (int i=0;i<zutabeak;i++){
 			for (int z=0;z<lerroak;z++){
 				arraya[i][z]=" ";
@@ -90,8 +90,6 @@ public class Ertaina extends JFrame {
 				taula[i][z].setBounds(i*25,z*25,25,25);
 				taula[i][z].setMargin(new Insets(0, 0, 0, 0));
 				taula[i][z].setFont(new Font("Tahoma", 0,10));
-				//—– Agrego un ActionListener a cada boton del Array de taula
-				//—– Ahora puede escuchar eventos.
  
 				taula[i][z].addActionListener(
 						new ActionListener(){
@@ -100,7 +98,6 @@ public class Ertaina extends JFrame {
 									for (int z=0;z<lerroak;z++){
 										if (ar.getSource()==taula[i][z]){
 											showTextTop(i,z);
-											//—– Cada Evento llama al método pulsarBoton.
 										} 
 									}        
 								}
@@ -111,9 +108,8 @@ public class Ertaina extends JFrame {
 			}
 		}
 	}
-	//—- Coloca el numero de bombas dependiendo el zutabeak.
  
-	public void colocarBomba(int numeroBombas){
+	public void bonbaJarri(int bonbaKop){
 		double i=0;
 		double z=0;
 		int condicion=0;

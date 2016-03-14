@@ -25,24 +25,24 @@ public class Erraza extends JFrame {
 	//Zutabeak kontutan hartuta, bonbak esleitzen dira 
  
 	public static void main (String [] args){
-		Erraza TabBuscaMin = new Erraza();
+		Erraza dragaminaTaula = new Erraza();
 	}
 	
 	public Erraza()  {
 		try    {
-			jbInit();
+			hasieratu();
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
 	}
  
-	public void jbInit() throws Exception  {
+	public void hasieratu() throws Exception  {
 		this.getContentPane().setLayout(null);
-		this.setSize(new Dimension(419, 347));
+		this.setSize(new Dimension(291, 318));
 		this.setTitle("Dragamina");
-		panela.setBounds(new Rectangle(0, 40, 376, 252));
-		panela.setBackground(new Color(200, 200, 200));
+		panela.setBounds(new Rectangle(0, 40, 268, 239));
+		panela.setBackground(new Color(0, 200, 200));
 		panela.setLayout(null);
 		start.setText("Hasi");
 		start.setBounds(new Rectangle(0, 0, 125, 40));
@@ -57,14 +57,12 @@ public class Erraza extends JFrame {
 		});
 		this.getContentPane().add(start, null);
 		this.getContentPane().add(panela, null);
-		cargarTablero();
-		colocarBomba(getzutabeak()-5);
-		comprueba();
+		taulaKargatu();
+		bonbaJarri(getzutabeak()-5);
+		konprobatu();
 		this.setVisible(true);  
  
-		//—- Oculta los taula del contorno que no participaran en el juego.
- 
-		ocultataula();
+		taulaEzkutatu();
 	}
 	public void start_actionPerformed(ActionEvent e)  {
 		for (int i=0;i<zutabeak;i++){
@@ -74,14 +72,13 @@ public class Erraza extends JFrame {
 				taula[i][z].setText(" ");
 			}
 		}
-		colocarBomba(getzutabeak()-5);
-		comprueba();
+		bonbaJarri(getzutabeak()-5);
+		konprobatu();
 		this.setTitle("Dragamina");
 		start.setText("HASI");
 	}
-	//—– Inicializa el tablero a 0
  
-	public void cargarTablero(){
+	public void taulaKargatu(){
 		for (int i=0;i<zutabeak;i++){
 			for (int z=0;z<lerroak;z++){
 				arraya[i][z]=" ";
@@ -90,8 +87,6 @@ public class Erraza extends JFrame {
 				taula[i][z].setBounds(i*25,z*25,25,25);
 				taula[i][z].setMargin(new Insets(0, 0, 0, 0));
 				taula[i][z].setFont(new Font("Tahoma", 0,10));
-				//—– Agrego un ActionListener a cada boton del Array de taula
-				//—– Ahora puede escuchar eventos.
  
 				taula[i][z].addActionListener(
 						new ActionListener(){
@@ -100,7 +95,6 @@ public class Erraza extends JFrame {
 									for (int z=0;z<lerroak;z++){
 										if (ar.getSource()==taula[i][z]){
 											showTextTop(i,z);
-											//—– Cada Evento llama al método pulsarBoton.
 										} 
 									}        
 								}
@@ -111,9 +105,8 @@ public class Erraza extends JFrame {
 			}
 		}
 	}
-	//—- Coloca el numero de bombas dependiendo el zutabeak.
  
-	public void colocarBomba(int numeroBombas){
+	public void bonbaJarri(int bonbaKop){
 		double i=0;
 		double z=0;
 		int condicion=0;
@@ -147,40 +140,39 @@ public class Erraza extends JFrame {
 	}
  
 	//—- Asigna un número a cada boton dependiendo de las B que tenga al lado.
-	//--- codigo Dragamina
-	public void comprueba(){
-		for (int i=0;i<zutabeak;i++){
-			for (int z=0;z<lerroak;z++){
-				int numeroComprueba=0;   //el numero que voy a asignar al boton
-				if (arraya[i][z]!=("B")){
-					if  (z!=0 && i!=0 && z!=lerroak-1 && i!=zutabeak-1){
-						System.out.println(i+ " "+ z +" "+ zutabeak +" " +lerroak);
-						if (arraya[i][z-1]=="B"){
-							numeroComprueba++;
+	public void konprobatu(){
+		for (int i=0; i < zutabeak; i++){
+			for (int z=0; z < lerroak ; z++){
+				int laukizenbakia = 0;
+				if (arraya[i][z] != ("B")){
+					if  (z != 0 && i != 0 && z != lerroak-1 && i != zutabeak-1){
+						System.out.println(i+ " " + z + " "+ zutabeak + " " + lerroak);
+						if (arraya[i][z-1] == "B"){
+							laukizenbakia++;
 						}
-						if (arraya[i-1][z-1]=="B"){
-							numeroComprueba++;
+						if (arraya[i-1][z-1] == "B"){
+							laukizenbakia++;
 						}
-						if (arraya[i+1][z-1]=="B"){
-							numeroComprueba++;
+						if (arraya[i+1][z-1] == "B"){
+							laukizenbakia++;
 						}
-						if (arraya[i][z+1]=="B"){
-							numeroComprueba++;
+						if (arraya[i][z+1] == "B"){
+							laukizenbakia++;
 						}
-						if (arraya[i+1][z+1]=="B"){
-							numeroComprueba++;
+						if (arraya[i+1][z+1] == "B"){
+							laukizenbakia++;
 						}
-						if (arraya[i-1][z+1]=="B"){
-							numeroComprueba++;
+						if (arraya[i-1][z+1] == "B"){
+							laukizenbakia++;
 						}
-						if (arraya[i+1][z]=="B"){
-							numeroComprueba++;
+						if (arraya[i+1][z] == "B"){
+							laukizenbakia++;
 						}
-						if (arraya[i-1][z]=="B"){
-							numeroComprueba++;
+						if (arraya[i-1][z] == "B"){
+							laukizenbakia++;
 						}	
-						if (numeroComprueba!=0){
-							arraya[i][z]=(String.valueOf(numeroComprueba));
+						if (laukizenbakia != 0){
+							arraya[i][z]=(String.valueOf(laukizenbakia));
 						}    
 					}
 				}
@@ -188,10 +180,9 @@ public class Erraza extends JFrame {
 		}
 	}
 	
-	//—- Oculta los taula de los laterales.
-	public void ocultataula(){
-		for (int i=0;i<zutabeak;i++){
-			for (int z=0;z<lerroak;z++){
+	public void taulaEzkutatu(){
+		for (int i = 0; i < zutabeak; i++){
+			for (int z = 0; z < lerroak; z++){
 				if  (z==0 || i==0 || z==lerroak-1 || i==zutabeak-1){
 					taula[i][z].setVisible(false);
 				}       
@@ -199,8 +190,7 @@ public class Erraza extends JFrame {
 		}   
 	}
  
-	//—- Muestra el texto en todos los taula cuando hay bomba.
-	//codigo para mostrar el texto encima del boton.
+
 	public void textotaula(){
 		for (int i=0;i<zutabeak;i++){
 			for (int z=0;z<lerroak;z++){
@@ -210,8 +200,6 @@ public class Erraza extends JFrame {
 		}   
 	}
 	
-	//—- Muestra el Numero encima del boton.
-	//—- Cambia las propiedades del boton mostrado.
  
 	public void showTextTop(int i,int z){
 		taula[i][z].setText(arraya[i][z]);
@@ -219,7 +207,7 @@ public class Erraza extends JFrame {
 		
 		if (arraya[i][z]==" "){
 			taula[i][z].setEnabled(false);
-			metodoStackOverFlow(i,z);
+			StackOverflowMetodoa(i,z);
 		}
 		else {
 			taula[i][z].setEnabled(false);
@@ -230,9 +218,9 @@ public class Erraza extends JFrame {
 		
 	}
 	
-	//—-  Pone el numero en los taula cercanos.
+	//Zenbakiak jartzeko
  
-	private void metodoStackOverFlow(int i, int z) {
+	private void StackOverflowMetodoa(int i, int z) {
 		if ( z!=0 && i!=0 && z!=lerroak-1 && i!=zutabeak-1){
 			taula[i-1][z].setEnabled(false);
 			taula[i-1][z-1].setEnabled(false);
@@ -242,7 +230,6 @@ public class Erraza extends JFrame {
 			taula[i+1][z].setEnabled(false);
 			taula[i+1][z+1].setEnabled(false);
 			taula[i+1][z-1].setEnabled(false);
-			
 			taula[i-1][z].setText(arraya[i-1][z]);
 			taula[i-1][z-1].setText(arraya[i-1][z-1]);
 			taula[i-1][z+1].setText(arraya[i-1][z+1]);
@@ -251,13 +238,20 @@ public class Erraza extends JFrame {
 			taula[i+1][z].setText(arraya[i+1][z]);
 			taula[i+1][z+1].setText(arraya[i+1][z+1]);
 			taula[i+1][z-1].setText(arraya[i+1][z-1]);
+			
+//			StackOverflowMetodoa(i-1, z);
+//			StackOverflowMetodoa(i-1, z-1);
+//			StackOverflowMetodoa(i-1, z+1);
+//			StackOverflowMetodoa(i, z-1);
+//			StackOverflowMetodoa(i, z+1);
+//			StackOverflowMetodoa(i+1, z);
+//			StackOverflowMetodoa(i+1, z+1);
+//			StackOverflowMetodoa(i+1, z-1);
+//			taula[i][z].setText(" ");
 		}
 	}
- 
-	//—- Este es el metodo que mostrara el final del game.
-	//—- 17 columnas por 10 lineas visibles= 170 taula[][]
-	//—- 170 - 19 Bombas = 171 taula con Texto
-	//--- codigo Dragamina
+
+
 	public void finalGame (){
 		int contadorFinal=0;
 		for (int i=1;i<zutabeak-1;i++){

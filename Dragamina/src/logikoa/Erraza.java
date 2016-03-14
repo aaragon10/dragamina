@@ -109,7 +109,7 @@ public class Erraza extends JFrame {
 	public void bonbaJarri(int bonbaKop){
 		double i=0;
 		double z=0;
-		int condicion=0;
+		int kopurua = 0;
 		do  {
 			i=Math.random()*getzutabeak();
 			z=Math.random()*getlerroak();
@@ -117,10 +117,10 @@ public class Erraza extends JFrame {
 			z=(int)z;
 			if  (z!=0 && i!=0 && z!=lerroak-1 && i!=zutabeak-1){
 				arraya[(int)i][(int) z ]="B";
-				condicion++;
+				kopurua++;
 			}
 		}
-		while (condicion<=zutabeak);
+		while (bonbaKop != kopurua);
 	}
   
 	public void setzutabeak (int szutabeak){

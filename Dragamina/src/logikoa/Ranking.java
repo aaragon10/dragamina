@@ -13,7 +13,7 @@ import javax.swing.text.html.HTMLDocument.Iterator;
 
 public class Ranking {
 
-	TreeMap<Integer, String> ranking;
+	public TreeMap<Integer, String> ranking;
 	static Ranking nRanking;
 	
 	private Ranking(){

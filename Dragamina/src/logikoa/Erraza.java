@@ -139,7 +139,6 @@ public class Erraza extends JFrame {
 		return lerroak;
 	}
  
-	//—- Asigna un número a cada boton dependiendo de las B que tenga al lado.
 	public void konprobatu(){
 		for (int i=0; i < zutabeak; i++){
 			for (int z=0; z < lerroak ; z++){

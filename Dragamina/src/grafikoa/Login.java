@@ -108,17 +108,7 @@ public class Login {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textArea.setText("Gure partida guztien ranking-a hau da.\n\n");
-				logikoa.Ranking.getRanking().rankingasortu();
-
-//				Collection c = (Collection) Ranking.getRanking().ranking;
-//				TreeMap<Integer, String> reverseOrderedMap = new TreeMap<Integer, String>(((Collections) c).reverseOrder());
-//				for(Map.Entry<Integer, String> entry : reverseOrderedMap.entrySet()) {
-//					Integer key = entry.getKey();
-//					String value = entry.getValue();
-//					Jokalaria j = new Jokalaria(key, value);
-//					textArea.setText(textArea.getText()+"\n"+key+" "+value);
-//				}
-				
+				logikoa.Ranking.getRanking().rankingasortu();				
 
 				ArrayList<Integer> keys = new ArrayList<Integer>(logikoa.Ranking.getRanking().ranking.keySet());
 				
@@ -141,10 +131,7 @@ public class Login {
 		btnRankingaEzabatu.setBounds(407, 80, 123, 23);
 		frame.getContentPane().add(btnRankingaEzabatu);
 		
-		
 	}
-	
-	
 	
 	public String jokalariIzena(){
 		return textArea.getText();

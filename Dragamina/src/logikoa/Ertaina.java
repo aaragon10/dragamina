@@ -60,9 +60,7 @@ public class Ertaina extends JFrame {
 		taulaKargatu();
 		bonbaJarri(getzutabeak());
 		konprobatu();
-		this.setVisible(true);  
- 
-		//—- Oculta los taula del contorno que no participaran en el juego.
+		this.setVisible(true);
  
 		taulaEzkutatu();
 	}
@@ -79,7 +77,6 @@ public class Ertaina extends JFrame {
 		this.setTitle("Dragamina");
 		start.setText("HASI");
 	}
-	//—– Inicializa el tablero a 0
  
 	public void taulaKargatu(){
 		for (int i=0;i<zutabeak;i++){
@@ -141,8 +138,7 @@ public class Ertaina extends JFrame {
 	public int getlerroak (){
 		return lerroak;
 	}
- 
-	//—- Asigna un número a cada boton dependiendo de las B que tenga al lado.
+
 	public void konprobatu(){
 		for (int i=0; i < zutabeak; i++){
 			for (int z=0; z < lerroak ; z++){

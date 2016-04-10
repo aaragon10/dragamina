@@ -2,12 +2,12 @@ package logikoa;
 
 public class Jokoa {
 
-	
+
 	private int zutabeak;
 	private int lerroak;
 	private  String [][] arraya;
 	private int bonbaKop;
-	
+
 	public Jokoa(int zailtasuna) {
 		if (zailtasuna==1){
 			this.zutabeak=10;
@@ -24,16 +24,20 @@ public class Jokoa {
 		this.bonbaKop=getzutabeak();
 		this.arraya=new String [zutabeak][lerroak];
 	}
-	
+
 	public int getzutabeak (){
 		return zutabeak;
 	}
-  
+
 	public int getlerroak (){
 		return lerroak;
 	}
 	
-	
+	public int getBonbak(){
+		return bonbaKop;
+	}
+
+
 	public void bonbaJarri(){
 		double i=0;
 		double z=0;
@@ -50,45 +54,43 @@ public class Jokoa {
 		}
 		while (bonbaKop != kopurua);
 	}
-	
+
 
 	public void zenbakiakJarri() {
 		for (int i=0; i < zutabeak; i++){
 			for (int z=0; z < lerroak ; z++){
 				int laukizenbakia = 0;
 				if (arraya[i][z] != ("B")){
-					if  (z != 0 && i != 0 && z != lerroak-1 && i != zutabeak-1){
-//						System.out.println(i+ " " + z + " "+ zutabeak + " " + lerroak);
-						if (arraya[i][z-1] == "B"){
-							laukizenbakia++;
-						}
-						if (arraya[i-1][z-1] == "B"){
-							laukizenbakia++;
-						}
-						if (arraya[i+1][z-1] == "B"){
-							laukizenbakia++;
-						}
-						if (arraya[i][z+1] == "B"){
-							laukizenbakia++;
-						}
-						if (arraya[i+1][z+1] == "B"){
-							laukizenbakia++;
-						}
-						if (arraya[i-1][z+1] == "B"){
-							laukizenbakia++;
-						}
-						if (arraya[i+1][z] == "B"){
-							laukizenbakia++;
-						}
-						if (arraya[i-1][z] == "B"){
-							laukizenbakia++;
-						}	
-						if (laukizenbakia != 0){
-							arraya[i][z]=(String.valueOf(laukizenbakia));
-						}else{
-							arraya[i][z]=" ";
-						}
+					if (z-1 >= 0 && i >= 0 && z-1 < lerroak-1 && i < zutabeak-1&&arraya[i][z-1] == "B"){
+						laukizenbakia++;
 					}
+					if (z-1 >= 0 && i-1 >= 0 && z-1 < lerroak-1 && i-1 < zutabeak-1&&arraya[i-1][z-1] == "B"){
+						laukizenbakia++;
+					}
+					if (z-1 >= 0 && i+1 >= 0 && z-1 < lerroak-1 && i+1 < zutabeak-1&&arraya[i+1][z-1] == "B"){
+						laukizenbakia++;
+					}
+					if (z+1 >= 0 && i >= 0 && z+1 < lerroak-1 && i < zutabeak-1&&arraya[i][z+1] == "B"){
+						laukizenbakia++;
+					}
+					if (z+1 >= 0 && i+1 >= 0 && z+1 < lerroak-1 && i+1 < zutabeak-1&&arraya[i+1][z+1] == "B"){
+						laukizenbakia++;
+					}
+					if (z+1 >= 0 && i-1 >= 0 && z+1 < lerroak-1 && i-1 < zutabeak-1&&arraya[i-1][z+1] == "B"){
+						laukizenbakia++;
+					}
+					if (z >= 0 && i+1 >= 0 && z < lerroak-1 && i+1 < zutabeak-1&&arraya[i+1][z] == "B"){
+						laukizenbakia++;
+					}
+					if (z >= 0 && i-1 >= 0 && z < lerroak-1 && i-1 < zutabeak-1&&arraya[i-1][z] == "B"){
+						laukizenbakia++;
+					}	
+					if (laukizenbakia != 0){
+						arraya[i][z]=(String.valueOf(laukizenbakia));
+					}else{
+						arraya[i][z]=" ";
+					}
+
 				}
 			}
 		}

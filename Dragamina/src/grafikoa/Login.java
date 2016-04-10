@@ -1,22 +1,11 @@
 package grafikoa;
 
 import java.awt.EventQueue;
-import java.awt.List;
-
 import javax.swing.JFrame;
 import javax.swing.JTextField;
-import javax.swing.text.html.HTMLDocument.Iterator;
-import javax.swing.ComboBoxEditor;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeMap;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
@@ -86,18 +75,18 @@ public class Login {
 				//Jokalaria j = new Jokalaria(0, textArea.getText());
 				if (comboBox.getSelectedItem().toString()=="Erraza"){
 					textArea.setText("Kaixo " + user.getText() + " aukera erraza hartu duzu.");
-					logikoa.Erraza e = new logikoa.Erraza();
-					e.start_actionPerformed(arg0);	
+					Tableroa tableroa = new Tableroa(1);
+					tableroa.start_actionPerformed();	
 				}
 				else if (comboBox.getSelectedItem().toString()=="Ertaina"){
 					textArea.setText("Kaixo " + user.getText() + " aukera ertaina hartu duzu.");
-					logikoa.Ertaina e = new logikoa.Ertaina();
-					e.start_actionPerformed(arg0);	
+					Tableroa tableroa = new Tableroa(2);
+					tableroa.start_actionPerformed();	
 				}
 				else if (comboBox.getSelectedItem().toString()=="Zaila"){
 					textArea.setText("Kaixo " + user.getText() + " aukera zaila hartu duzu.");
-					logikoa.Zaila z = new logikoa.Zaila();
-					z.start_actionPerformed(arg0);	
+					Tableroa tableroa = new Tableroa(3);
+					tableroa.start_actionPerformed();	
 				}
 			}
 		});

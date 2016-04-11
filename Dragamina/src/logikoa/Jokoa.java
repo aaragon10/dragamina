@@ -10,18 +10,20 @@ public class Jokoa {
 
 	public Jokoa(int zailtasuna) {
 		if (zailtasuna==1){
-			this.zutabeak=10;
-			this.lerroak=10;
+			this.zutabeak=8;
+			this.lerroak=8;
+			this.bonbaKop=10;
 		}
 		else if (zailtasuna==2){
-			this.zutabeak=19;
-			this.lerroak=12;
+			this.zutabeak=16;
+			this.lerroak=16;
+			this.bonbaKop=40;
 		}
 		else if (zailtasuna==3){
-			this.zutabeak=40;
-			this.lerroak=20; 
+			this.zutabeak=30;
+			this.lerroak=16;
+			this.bonbaKop=99;
 		}
-		this.bonbaKop=getzutabeak();
 		this.arraya=new String [zutabeak][lerroak];
 	}
 
